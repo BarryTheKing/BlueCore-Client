@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BlueCore Client — Minecraft Bedrock Android</title>
-<meta name="description" content="BlueCore Client, Minecraft Bedrock Edition Android için ay ve kristal esintili, performans odaklı bir istemci.">
+<meta name="description" content="BlueCore Client is a moon-and-crystal themed performance and customization client for Minecraft Bedrock Edition on Android.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%2214%22 fill=%22%230A0E1F%22/><path d=%22M20 7a10 10 0 1 0 0 18 8 8 0 1 1 0-18Z%22 fill=%22%237FD6FF%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,14 +26,10 @@
         </linearGradient>
         <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="2.4" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
       </defs>
-      <path filter="url(#glow)" fill="url(#moonGrad)"
-        d="M40 8a24 24 0 1 0 0 48 19 19 0 1 1 0-48Z"/>
+      <path filter="url(#glow)" fill="url(#moonGrad)" d="M40 8a24 24 0 1 0 0 48 19 19 0 1 1 0-48Z"/>
       <g fill="#EAF6FF" filter="url(#glow)">
         <path d="M50 12l1.6 4.2L56 18l-4.4 1.8L50 24l-1.6-4.2L44 18l4.4-1.8Z"/>
         <circle cx="21" cy="47" r="1.6"/>
@@ -44,18 +40,24 @@
   </div>
 
   <nav class="site-nav">
-    <a href="#features">Modüller</a>
-    <a href="#stats">İstatistik</a>
-    <a href="#install">İndir</a>
-    <a href="#changelog">Değişiklikler</a>
-    <a href="#faq">S.S.S.</a>
+    <a href="#features" data-i18n="nav.features">Features</a>
+    <a href="#cosmetics" data-i18n="nav.cosmetics">Cosmetics</a>
+    <a href="#compare" data-i18n="nav.compare">Compare</a>
+    <a href="#install" data-i18n="nav.install">Install</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
   </nav>
 
   <div class="header-actions">
-    <a class="icon-link" href="https://discord.com/" title="Discord" aria-label="Discord topluluğu">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M18.9 6.4a16 16 0 0 0-3.9-1.2l-.2.4a13 13 0 0 1 3.4 1.3 14.6 14.6 0 0 0-12.4 0 12 12 0 0 1 3.4-1.3l-.2-.4A16 16 0 0 0 5.1 6.4C3 9.6 2.4 12.7 2.6 15.8a16.1 16.1 0 0 0 4.9 2.5l.6-1a10.3 10.3 0 0 1-1.7-.8l.4-.3a11.6 11.6 0 0 0 10.4 0l.4.3c-.5.3-1.1.6-1.7.8l.6 1a16.1 16.1 0 0 0 4.9-2.5c.3-3.5-.6-6.6-2.5-9.4ZM9.4 13.8c-.8 0-1.5-.8-1.5-1.7 0-1 .7-1.8 1.5-1.8s1.5.8 1.5 1.8c0 .9-.7 1.7-1.5 1.7Zm5.2 0c-.8 0-1.5-.8-1.5-1.7 0-1 .7-1.8 1.5-1.8s1.5.8 1.5 1.8c0 .9-.7 1.7-1.5 1.7Z" stroke="currentColor" stroke-width="0.4" fill="currentColor"/></svg>
-    </a>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Görünümü değiştir" title="Açık / koyu görünüm">
+    <div class="lang-switch">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="currentColor" stroke-width="1.3"/></svg>
+      <select id="lang-select" aria-label="Language / Dil / Sprache / Idioma">
+        <option value="en">English</option>
+        <option value="tr">Türkçe</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+      </select>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light / dark mode" title="Light / dark mode">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
@@ -64,217 +66,344 @@
 
 <main>
   <section class="hero">
-    <p class="hero-eyebrow">Bedrock Edition · Android</p>
-    <h1 class="hero-title">Ay ışığında<br><span>yeniden</span> şekillenen client.</h1>
-    <p class="hero-sub">BlueCore, telefonunda Bedrock dünyalarını daha akıcı çalıştıran,
-      arayüzünü kristal netliğinde özelleştiren hafif bir istemci katmanı.</p>
+    <p class="hero-eyebrow" data-i18n="hero.eyebrow">Bedrock Edition · Android</p>
+    <h1 class="hero-title" data-i18n-html="hero.titleHtml">A client reshaped<br><span>in moonlight.</span></h1>
+    <p class="hero-sub" data-i18n="hero.sub">BlueCore is a lightweight client layer that keeps Bedrock worlds running
+      smoothly on your phone, with an interface you can shape with crystal-clear precision.</p>
     <div class="hero-actions">
-      <a href="#install" class="btn btn-primary">Son sürümü indir</a>
-      <a href="#features" class="btn btn-ghost">Modülleri gör</a>
+      <a href="#install" class="btn btn-primary" data-i18n="hero.ctaPrimary">Download latest</a>
+      <a href="#features" class="btn btn-ghost" data-i18n="hero.ctaGhost">Browse modules</a>
     </div>
 
-    <div class="hero-frame">
+    <div class="hero-frame reveal">
       <div class="hero-frame-bar">
         <span></span><span></span><span></span>
-        <span class="hero-frame-title">BlueCore · ClickGUI önizleme</span>
+        <span class="hero-frame-title" data-i18n="hero.frameTitle">BlueCore · ClickGUI preview</span>
       </div>
       <div class="hero-frame-body">
-        <div class="hero-module hero-module--on"><span>Performans</span><em>Açık</em></div>
-        <div class="hero-module hero-module--on"><span>Dinamik HUD</span><em>Açık</em></div>
-        <div class="hero-module"><span>Zoom</span><em>Kapalı</em></div>
-        <div class="hero-module hero-module--on"><span>Ping Göstergesi</span><em>Açık</em></div>
-        <div class="hero-module"><span>Fotoğraf Modu</span><em>Kapalı</em></div>
-        <div class="hero-module hero-module--on"><span>Kristal Tema</span><em>Açık</em></div>
+        <div class="hero-module hero-module--on"><span data-i18n="hero.mod.performance">Performance</span><em data-i18n="hero.on">On</em></div>
+        <div class="hero-module hero-module--on"><span data-i18n="hero.mod.hud">Dynamic HUD</span><em data-i18n="hero.on">On</em></div>
+        <div class="hero-module"><span data-i18n="hero.mod.zoom">Zoom</span><em data-i18n="hero.off">Off</em></div>
+        <div class="hero-module hero-module--on"><span data-i18n="hero.mod.ping">Ping display</span><em data-i18n="hero.on">On</em></div>
+        <div class="hero-module"><span data-i18n="hero.mod.photo">Photo mode</span><em data-i18n="hero.off">Off</em></div>
+        <div class="hero-module hero-module--on"><span data-i18n="hero.mod.theme">Crystal theme</span><em data-i18n="hero.on">On</em></div>
       </div>
     </div>
   </section>
 
-  <section id="stats" class="stats-band">
-    <div class="stat"><strong>120K+</strong><span>indirme</span></div>
-    <div class="stat"><strong>4.8</strong><span>topluluk puanı</span></div>
-    <div class="stat"><strong>35+</strong><span>modül</span></div>
-    <div class="stat"><strong>1.21.x</strong><span>güncel sürüm desteği</span></div>
+  <section id="stats" class="stats-band reveal">
+    <div class="stat"><strong>120K+</strong><span data-i18n="stats.downloads">downloads</span></div>
+    <div class="stat"><strong>4.8</strong><span data-i18n="stats.rating">community rating</span></div>
+    <div class="stat"><strong>35+</strong><span data-i18n="stats.modules">modules</span></div>
+    <div class="stat"><strong>1.21.x</strong><span data-i18n="stats.version">latest version support</span></div>
   </section>
 
   <section id="features" class="features">
-    <h2>Dört kategori, tek arayüz</h2>
-    <p class="section-sub">Her modül tek dokunuşla açılır kapanır; ayarlar dünyalar arasında senkronize kalır.</p>
+    <h2 class="reveal" data-i18n="features.heading">Four categories, one interface</h2>
+    <p class="section-sub reveal" data-i18n="features.sub">Toggle every module with a single tap; settings stay synced across worlds.</p>
 
-    <div class="module-tabs" role="tablist" aria-label="Modül kategorileri">
-      <button class="module-tab is-active" data-cat="performans">Performans</button>
-      <button class="module-tab" data-cat="gorsel">Görsel</button>
-      <button class="module-tab" data-cat="hud">HUD</button>
-      <button class="module-tab" data-cat="araclar">Araçlar</button>
+    <div class="module-tabs reveal" role="tablist" aria-label="Module categories">
+      <button class="module-tab is-active" data-cat="performance" data-i18n="tabs.performance">Performance</button>
+      <button class="module-tab" data-cat="visual" data-i18n="tabs.visual">Visual</button>
+      <button class="module-tab" data-cat="hud" data-i18n="tabs.hud">HUD</button>
+      <button class="module-tab" data-cat="tools" data-i18n="tabs.tools">Tools</button>
     </div>
 
     <div class="module-grid">
-      <article class="module-card" data-cat="performans">
+      <article class="module-card reveal" data-cat="performance">
         <span class="module-icon">⚡</span>
-        <h3>Akıcı Chunk</h3>
-        <p>Düşük donanımlı telefonlarda bile chunk yüklemeyi hızlandırıp donmaları azaltır.</p>
+        <h3 data-i18n="mod.chunks.title">Smooth Chunks</h3>
+        <p data-i18n="mod.chunks.desc">Speeds up chunk loading so low-end phones keep moving without freezing.</p>
       </article>
-      <article class="module-card" data-cat="performans">
+      <article class="module-card reveal" data-cat="performance">
         <span class="module-icon">🧊</span>
-        <h3>Isınma Koruması</h3>
-        <p>Uzun oturumlarda CPU/GPU yükünü dengeleyerek cihazın ısınmasını geciktirir.</p>
+        <h3 data-i18n="mod.thermal.title">Thermal Guard</h3>
+        <p data-i18n="mod.thermal.desc">Balances CPU/GPU load across long sessions to slow down device heating.</p>
       </article>
-      <article class="module-card" data-cat="performans">
+      <article class="module-card reveal" data-cat="performance">
         <span class="module-icon">📶</span>
-        <h3>Ping Optimizer</h3>
-        <p>Sunucu bağlantısını izler, gecikme arttığında seni bilgilendirir.</p>
+        <h3 data-i18n="mod.ping.title">Ping Optimizer</h3>
+        <p data-i18n="mod.ping.desc">Watches your server connection and flags you when latency spikes.</p>
       </article>
 
-      <article class="module-card" data-cat="gorsel">
+      <article class="module-card reveal is-hidden" data-cat="visual">
         <span class="module-icon">🌙</span>
-        <h3>Kristal Tema Paketi</h3>
-        <p>Ay ışığı esintili parçacıklar, gökyüzü filtreleri ve su/lav parlaklık ayarları.</p>
+        <h3 data-i18n="mod.crystal.title">Crystal Theme Pack</h3>
+        <p data-i18n="mod.crystal.desc">Moonlit particles, sky filters and water/lava shimmer tuning.</p>
       </article>
-      <article class="module-card" data-cat="gorsel">
+      <article class="module-card reveal is-hidden" data-cat="visual">
         <span class="module-icon">🔍</span>
-        <h3>Zoom</h3>
-        <p>Tek tuşla netlik kaybetmeden yakınlaştırma; nişancı ya da kaşif modunda fark yaratır.</p>
+        <h3 data-i18n="mod.zoom.title">Zoom</h3>
+        <p data-i18n="mod.zoom.desc">One-tap zoom with no loss of clarity — handy for sniping details or exploring.</p>
       </article>
-      <article class="module-card" data-cat="gorsel">
+      <article class="module-card reveal is-hidden" data-cat="visual">
         <span class="module-icon">📸</span>
-        <h3>Fotoğraf Modu</h3>
-        <p>HUD'u gizleyip serbest kamera açısıyla ekran görüntüsü almana izin verir.</p>
+        <h3 data-i18n="mod.photo.title">Photo Mode</h3>
+        <p data-i18n="mod.photo.desc">Hides the HUD and frees the camera angle for clean screenshots.</p>
       </article>
 
-      <article class="module-card" data-cat="hud">
+      <article class="module-card reveal is-hidden" data-cat="hud">
         <span class="module-icon">❤️</span>
-        <h3>Dinamik Can/Açlık</h3>
-        <p>Göstergeleri sürükle bırak ile istediğin köşeye taşı, boyutunu ayarla.</p>
+        <h3 data-i18n="mod.health.title">Dynamic Health/Hunger</h3>
+        <p data-i18n="mod.health.desc">Drag indicators to any corner and resize them to taste.</p>
       </article>
-      <article class="module-card" data-cat="hud">
+      <article class="module-card reveal is-hidden" data-cat="hud">
         <span class="module-icon">⌨️</span>
-        <h3>Tuş Vuruşları</h3>
-        <p>Hareket ve aksiyon tuşlarını ekranda canlı gösterir; içerik üreticileri için ideal.</p>
+        <h3 data-i18n="mod.keys.title">Keystrokes</h3>
+        <p data-i18n="mod.keys.desc">Shows live movement and action inputs — great for content creators.</p>
       </article>
-      <article class="module-card" data-cat="hud">
+      <article class="module-card reveal is-hidden" data-cat="hud">
         <span class="module-icon">🧭</span>
-        <h3>Koordinat + Pusula</h3>
-        <p>Konum, yön ve yükseklik bilgisini sade bir şerit halinde üstte tutar.</p>
+        <h3 data-i18n="mod.coords.title">Coordinates + Compass</h3>
+        <p data-i18n="mod.coords.desc">Keeps position, heading and altitude in one slim strip up top.</p>
       </article>
 
-      <article class="module-card" data-cat="araclar">
+      <article class="module-card reveal is-hidden" data-cat="tools">
         <span class="module-icon">🗂️</span>
-        <h3>Paket Yöneticisi</h3>
-        <p>Doku ve davranış paketlerini tek ekrandan etkinleştir, sırala, dünyalara uygula.</p>
+        <h3 data-i18n="mod.packs.title">Pack Manager</h3>
+        <p data-i18n="mod.packs.desc">Enable, sort and apply texture and behavior packs from one screen.</p>
       </article>
-      <article class="module-card" data-cat="araclar">
+      <article class="module-card reveal is-hidden" data-cat="tools">
         <span class="module-icon">📡</span>
-        <h3>Sunucu Listesi</h3>
-        <p>Sık kullandığın sunucuları sabitle, katılmadan önce ping ve oyuncu sayısını gör.</p>
+        <h3 data-i18n="mod.servers.title">Server List</h3>
+        <p data-i18n="mod.servers.desc">Pin your go-to servers and check ping and player count before joining.</p>
       </article>
-      <article class="module-card" data-cat="araclar">
+      <article class="module-card reveal is-hidden" data-cat="tools">
         <span class="module-icon">🖐️</span>
-        <h3>Dokunmatik Düzen</h3>
-        <p>Buton boyutu, opaklık ve yerleşimini santim santim özelleştir.</p>
+        <h3 data-i18n="mod.touch.title">Touch Layout Editor</h3>
+        <p data-i18n="mod.touch.desc">Fine-tune button size, opacity and placement down to the pixel.</p>
       </article>
+    </div>
+  </section>
+
+  <section id="cosmetics" class="cosmetics">
+    <div class="cosmetics-heading reveal">
+      <h2 data-i18n="cosmetics.heading">Cosmetics</h2>
+      <span class="badge-v2" data-i18n="cosmetics.badge">Coming in v2</span>
+    </div>
+    <p class="section-sub reveal" data-i18n="cosmetics.sub">A first look at capes, trails and emotes landing in the next major
+      update. This is a snapshot preview — nothing here can be equipped yet.</p>
+
+    <div class="cosmetic-grid">
+      <article class="cosmetic-card reveal">
+        <div class="cosmetic-lock" data-i18n="cosmetics.locked">Locked · v2</div>
+        <span class="module-icon">🧥</span>
+        <h3 data-i18n="cosmetic.cape.title">Lunar Cape</h3>
+        <p data-i18n="cosmetic.cape.desc">A flowing cape with a soft moonlit shimmer.</p>
+      </article>
+      <article class="cosmetic-card reveal">
+        <div class="cosmetic-lock" data-i18n="cosmetics.locked">Locked · v2</div>
+        <span class="module-icon">☄️</span>
+        <h3 data-i18n="cosmetic.trail.title">Comet Trail</h3>
+        <p data-i18n="cosmetic.trail.desc">Leaves a brief trail of light behind you while sprinting.</p>
+      </article>
+      <article class="cosmetic-card reveal">
+        <div class="cosmetic-lock" data-i18n="cosmetics.locked">Locked · v2</div>
+        <span class="module-icon">💎</span>
+        <h3 data-i18n="cosmetic.emote.title">Crystal Emote</h3>
+        <p data-i18n="cosmetic.emote.desc">A short emote that summons floating shards around you.</p>
+      </article>
+      <article class="cosmetic-card reveal">
+        <div class="cosmetic-lock" data-i18n="cosmetics.locked">Locked · v2</div>
+        <span class="module-icon">🌌</span>
+        <h3 data-i18n="cosmetic.aurora.title">Aurora Cloak</h3>
+        <p data-i18n="cosmetic.aurora.desc">A cloak that slowly shifts color like the northern lights.</p>
+      </article>
+      <article class="cosmetic-card reveal">
+        <div class="cosmetic-lock" data-i18n="cosmetics.locked">Locked · v2</div>
+        <span class="module-icon">✨</span>
+        <h3 data-i18n="cosmetic.dust.title">Stardust Particles</h3>
+        <p data-i18n="cosmetic.dust.desc">Ambient sparkle particles drifting around your character.</p>
+      </article>
+      <article class="cosmetic-card reveal">
+        <div class="cosmetic-lock" data-i18n="cosmetics.locked">Locked · v2</div>
+        <span class="module-icon">🦋</span>
+        <h3 data-i18n="cosmetic.wings.title">Moonlit Wings</h3>
+        <p data-i18n="cosmetic.wings.desc">Decorative wings with a subtle, steady glow.</p>
+      </article>
+    </div>
+    <p class="cosmetics-footnote reveal" data-i18n="cosmetics.footnote">Previews are early work-in-progress and may change before release.</p>
+  </section>
+
+  <section id="compare" class="compare">
+    <h2 class="reveal" data-i18n="compare.heading">Vanilla vs BlueCore</h2>
+    <div class="compare-table reveal">
+      <div class="compare-row compare-row--head">
+        <span data-i18n="compare.col.feature">Feature</span>
+        <span data-i18n="compare.col.vanilla">Vanilla</span>
+        <span data-i18n="compare.col.bluecore">BlueCore</span>
+      </div>
+      <div class="compare-row">
+        <span data-i18n="compare.row1.feature">Stable FPS on low-end phones</span>
+        <span data-i18n="compare.row1.vanilla">Depends on device</span>
+        <span class="is-good" data-i18n="compare.row1.bluecore">Optimized</span>
+      </div>
+      <div class="compare-row">
+        <span data-i18n="compare.row2.feature">Custom HUD layout</span>
+        <span data-i18n="compare.row2.vanilla">No</span>
+        <span class="is-good" data-i18n="compare.row2.bluecore">Yes</span>
+      </div>
+      <div class="compare-row">
+        <span data-i18n="compare.row3.feature">Cosmetics</span>
+        <span data-i18n="compare.row3.vanilla">No</span>
+        <span class="is-soon" data-i18n="compare.row3.bluecore">Coming in v2</span>
+      </div>
+      <div class="compare-row">
+        <span data-i18n="compare.row4.feature">Built-in pack manager</span>
+        <span data-i18n="compare.row4.vanilla">No</span>
+        <span class="is-good" data-i18n="compare.row4.bluecore">Yes</span>
+      </div>
+      <div class="compare-row">
+        <span data-i18n="compare.row5.feature">Root required</span>
+        <span data-i18n="compare.row5.vanilla">—</span>
+        <span class="is-good" data-i18n="compare.row5.bluecore">No</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2 class="reveal" data-i18n="testimonials.heading">What players say</h2>
+    <div class="testimonial-grid">
+      <blockquote class="testimonial-card reveal">
+        <p data-i18n="testimonial.1.quote">My FPS finally feels stable on my old phone.</p>
+        <cite data-i18n="testimonial.1.name">_Nova</cite>
+      </blockquote>
+      <blockquote class="testimonial-card reveal">
+        <p data-i18n="testimonial.2.quote">The HUD editor is exactly what I wanted.</p>
+        <cite data-i18n="testimonial.2.name">ClayBuilds</cite>
+      </blockquote>
+      <blockquote class="testimonial-card reveal">
+        <p data-i18n="testimonial.3.quote">Waiting for cosmetics in v2!</p>
+        <cite data-i18n="testimonial.3.name">Pekka.exe</cite>
+      </blockquote>
     </div>
   </section>
 
   <section id="install" class="install">
-    <h2>Kurulum üç adım</h2>
-    <ol class="steps">
+    <h2 class="reveal" data-i18n="install.heading">Install in three steps</h2>
+    <ol class="steps reveal">
       <li>
         <span class="step-num">1</span>
         <div>
-          <h3>Sürümünü seç</h3>
-          <p>Cihazına uygun BlueCore sürümünü aşağıdaki listeden seç.</p>
+          <h3 data-i18n="install.step1.title">Pick your version</h3>
+          <p data-i18n="install.step1.desc">Choose the BlueCore build that matches your device below.</p>
         </div>
       </li>
       <li>
         <span class="step-num">2</span>
         <div>
-          <h3>Bilinmeyen kaynaklara izin ver</h3>
-          <p>Android ayarlarından dosya yöneticin için tek seferlik kurulum izni ver.</p>
+          <h3 data-i18n="install.step2.title">Allow unknown sources</h3>
+          <p data-i18n="install.step2.desc">Give your file manager one-time install permission in Android settings.</p>
         </div>
       </li>
       <li>
         <span class="step-num">3</span>
         <div>
-          <h3>Minecraft'ı aç, oyna</h3>
-          <p>BlueCore arka planda devreye girer; herhangi bir dünyada doğrudan kullanılabilir.</p>
+          <h3 data-i18n="install.step3.title">Open Minecraft and play</h3>
+          <p data-i18n="install.step3.desc">BlueCore runs in the background and works in any world right away.</p>
         </div>
       </li>
     </ol>
 
-    <div class="version-picker">
-      <label for="version-select">Bedrock sürümü</label>
+    <div class="version-picker reveal">
+      <label for="version-select" data-i18n="install.versionLabel">Bedrock version</label>
       <select id="version-select">
-        <option value="1.21.x">1.21.x — güncel</option>
+        <option value="1.21.x" data-i18n="install.version121">1.21.x — latest</option>
         <option value="1.20.x">1.20.x</option>
         <option value="1.19.x">1.19.x</option>
       </select>
-      <a href="https://github.com/" class="btn btn-primary btn-lg" id="download-btn">BlueCore_1.4.2.apk indir</a>
+      <a href="https://github.com/" class="btn btn-primary btn-lg" id="download-btn">Download BlueCore_1.4.2.apk</a>
     </div>
-    <p class="install-note">Kaynağı GitHub üzerinde incelenebilir. Sunucu kurallarına her zaman uy.</p>
+    <p class="install-note reveal" data-i18n="install.note">Source is reviewable on GitHub. Always follow the rules of the server you play on.</p>
   </section>
 
   <section id="changelog" class="changelog">
-    <h2>Değişiklik günlüğü</h2>
-    <ol class="timeline">
+    <h2 class="reveal" data-i18n="changelog.heading">Changelog</h2>
+    <ol class="timeline reveal">
       <li>
         <span class="timeline-dot"></span>
         <div>
-          <h3>v1.4.2 <time>12 Kas 2026</time></h3>
-          <p>Ping Optimizer modülü eklendi; Kristal Tema paketinde su parlaklığı iyileştirildi.</p>
+          <h3>v1.4.2 <time>Nov 12, 2026</time></h3>
+          <p data-i18n="changelog.v142">Added the Ping Optimizer module; improved water shimmer in the Crystal Theme pack.</p>
         </div>
       </li>
       <li>
         <span class="timeline-dot"></span>
         <div>
-          <h3>v1.4.0 <time>2 Eki 2026</time></h3>
-          <p>Dokunmatik düzen editörü tamamen yenilendi, Isınma Koruması modülü eklendi.</p>
+          <h3>v1.4.0 <time>Oct 2, 2026</time></h3>
+          <p data-i18n="changelog.v140">Rebuilt the touch layout editor from scratch and added Thermal Guard.</p>
         </div>
       </li>
       <li>
         <span class="timeline-dot"></span>
         <div>
-          <h3>v1.3.1 <time>19 Ağu 2026</time></h3>
-          <p>1.21.x sürüm desteği, küçük HUD konumlama düzeltmeleri.</p>
+          <h3>v1.3.1 <time>Aug 19, 2026</time></h3>
+          <p data-i18n="changelog.v131">1.21.x support, minor HUD positioning fixes.</p>
         </div>
       </li>
     </ol>
   </section>
 
-  <section class="community-band">
+  <section class="roadmap">
+    <h2 class="reveal" data-i18n="roadmap.heading">What's next — v2 roadmap</h2>
+    <ul class="roadmap-list reveal">
+      <li class="roadmap-item">
+        <span class="status-tag status-progress" data-i18n="roadmap.inProgress">In progress</span>
+        <div><h3 data-i18n="roadmap.item1">Cosmetics system goes live</h3></div>
+      </li>
+      <li class="roadmap-item">
+        <span class="status-tag status-planned" data-i18n="roadmap.planned">Planned</span>
+        <div><h3 data-i18n="roadmap.item2">Cloud-synced settings</h3></div>
+      </li>
+      <li class="roadmap-item">
+        <span class="status-tag status-planned" data-i18n="roadmap.planned">Planned</span>
+        <div><h3 data-i18n="roadmap.item3">Tablet-friendly layout</h3></div>
+      </li>
+      <li class="roadmap-item">
+        <span class="status-tag status-progress" data-i18n="roadmap.inProgress">In progress</span>
+        <div><h3 data-i18n="roadmap.item4">Per-device performance profiles</h3></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="community-band reveal">
     <div>
-      <h2>Topluluğa katıl</h2>
-      <p>Yeni modül önerilerini oyla, beta sürümleri ilk sen dene.</p>
+      <h2 data-i18n="community.heading">Stay in the loop</h2>
+      <p data-i18n="community.sub">Star the repo on GitHub to hear about v2 first.</p>
     </div>
-    <a href="https://discord.com/" class="btn btn-ghost btn-lg">Discord'a katıl</a>
+    <a href="https://github.com/" class="btn btn-ghost btn-lg" data-i18n="community.cta">View on GitHub</a>
   </section>
 
   <section id="faq" class="faq">
-    <h2>Sık sorulanlar</h2>
-    <details>
-      <summary>BlueCore, hesabımı riske atar mı?</summary>
-      <p>BlueCore cihazında yerel olarak çalışır ve hesap bilgilerine erişmez; yine de
-        herhangi bir üçüncü taraf yazılım gibi sorumluluk kullanıcıya aittir.</p>
+    <h2 class="reveal" data-i18n="faq.heading">Frequently asked questions</h2>
+    <details class="reveal">
+      <summary data-i18n="faq.q1.q">Does BlueCore put my account at risk?</summary>
+      <p data-i18n="faq.q1.a">BlueCore runs locally on your device and never touches your account credentials;
+        as with any third-party software, use is at your own responsibility.</p>
     </details>
-    <details>
-      <summary>Sunucularda yasaklanır mıyım?</summary>
-      <p>BlueCore, oyuncular arası dengeyi bozan haksız avantaj modülleri içermez;
-        yalnızca performans ve görsel özelleştirme sunar. Yine de her sunucunun
-        kendi kurallarını kontrol etmen önerilir.</p>
+    <details class="reveal">
+      <summary data-i18n="faq.q2.q">Will I get banned on servers?</summary>
+      <p data-i18n="faq.q2.a">BlueCore doesn't include modules that break fairness between players — only
+        performance and visual customization. Always check the rules of the server you join.</p>
     </details>
-    <details>
-      <summary>iOS sürümü var mı?</summary>
-      <p>Şu an yalnızca Android için geliştiriliyor. iOS desteği yol haritasında değil.</p>
+    <details class="reveal">
+      <summary data-i18n="faq.q3.q">When do cosmetics unlock?</summary>
+      <p data-i18n="faq.q3.a">Cosmetics are a snapshot preview for the upcoming v2 release and can't be
+        equipped yet. They'll unlock once v2 ships.</p>
+    </details>
+    <details class="reveal">
+      <summary data-i18n="faq.q4.q">Is there an iOS version?</summary>
+      <p data-i18n="faq.q4.a">Only Android is in development right now. iOS isn't on the roadmap.</p>
     </details>
   </section>
 </main>
 
 <footer class="site-footer">
-  <span>© 2026 BlueCore Client</span>
+  <span data-i18n="footer.copyright">© 2026 BlueCore Client</span>
   <span class="footer-sep">·</span>
   <a href="https://github.com/">GitHub</a>
   <span class="footer-sep">·</span>
-  <a href="https://discord.com/">Discord</a>
-  <span class="footer-sep">·</span>
-  <span>Minecraft ve Mojang'ın resmi bir ürünü değildir.</span>
+  <span data-i18n="footer.disclaimer">Not an official Minecraft or Mojang product.</span>
 </footer>
 
 <script src="app.js"></script>
