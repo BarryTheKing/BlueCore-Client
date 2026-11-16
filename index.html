@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlueCore Client — Minecraft Bedrock Android</title>
+<meta name="description" content="BlueCore Client, Minecraft Bedrock Edition Android için performans ve özelleştirme odaklı bir istemci.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%2214%22 fill=%22%235B8DEF%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="nebula-canvas"></canvas>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">BlueCore</span>
+  </div>
+  <nav class="site-nav">
+    <a href="#features">Özellikler</a>
+    <a href="#install">Kurulum</a>
+    <a href="#faq">S.S.S.</a>
+  </nav>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Görünümü değiştir" title="Açık / koyu görünüm">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  </button>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="hero-eyebrow">Bedrock Edition · Android</p>
+    <h1 class="hero-title">Dünyana biraz<br><span>derinlik</span> kat.</h1>
+    <p class="hero-sub">BlueCore, telefonunda Bedrock dünyalarını daha akıcı çalıştıran,
+      arayüzünü senin ellerine bırakan hafif bir istemci katmanı.</p>
+    <div class="hero-actions">
+      <a href="#install" class="btn btn-primary">Son sürümü indir</a>
+      <a href="#features" class="btn btn-ghost">Neler yapabildiğine bak</a>
+    </div>
+    <dl class="hero-stats">
+      <div><dt>Sürüm</dt><dd>1.4.2</dd></div>
+      <div><dt>Boyut</dt><dd>~9 MB</dd></div>
+      <div><dt>Root</dt><dd>Gerekmez</dd></div>
+    </dl>
+  </section>
+
+  <section id="features" class="features">
+    <h2>Üç katmanda tasarlandı</h2>
+    <div class="feature-grid">
+      <article class="feature-card feature-card--lg">
+        <span class="feature-tag">Performans</span>
+        <h3>Daha az donma, daha çok FPS</h3>
+        <p>Chunk yükleme ve render hattında ince ayar yaparak, düşük donanımlı
+          telefonlarda bile dünyalar arasında akıcı geçiş sağlar.</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-tag">Arayüz</span>
+        <h3>Özelleştirilebilir HUD</h3>
+        <p>Can, açlık ve mermi göstergelerini sürükleyip bırakarak
+          kendi oyun tarzına göre yerleştir.</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-tag">Düzen</span>
+        <h3>Paket yöneticisi</h3>
+        <p>Doku ve davranış paketlerini tek ekrandan etkinleştir,
+          sırala ve dünyalara anında uygula.</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-tag">Bağlantı</span>
+        <h3>Sunucu listesi + ping</h3>
+        <p>Sık kullandığın sunucuları sabitle, katılmadan önce
+          gecikme ve oyuncu sayısını gör.</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-tag">Kontrol</span>
+        <h3>Dokunmatik düzenleri</h3>
+        <p>Buton boyutu, opaklık ve yerleşimini santim santim ayarla;
+          tek elle oynamaya kadar uyarlanabilir.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="install" class="install">
+    <h2>Kurulum üç adım</h2>
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <div>
+          <h3>APK'yı indir</h3>
+          <p>Aşağıdaki butondan en güncel BlueCore sürümünü cihazına indir.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>
+          <h3>Bilinmeyen kaynaklara izin ver</h3>
+          <p>Android ayarlarından tarayıcın veya dosya yöneticin için tek seferlik kurulum izni ver.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>
+          <h3>Minecraft'ı aç, oyna</h3>
+          <p>BlueCore arka planda devreye girer; herhangi bir dünyada doğrudan kullanılabilir.</p>
+        </div>
+      </li>
+    </ol>
+    <a href="https://github.com/" class="btn btn-primary btn-lg">BlueCore_1.4.2.apk indir</a>
+    <p class="install-note">Bedrock Edition 1.21.x ile test edilmiştir. Kaynağı GitHub üzerinde incelenebilir.</p>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2>Sık sorulanlar</h2>
+    <details>
+      <summary>BlueCore, hesabımı riske atar mı?</summary>
+      <p>BlueCore cihazında yerel olarak çalışır ve hesap bilgilerine erişmez; yine de
+        herhangi bir üçüncü taraf yazılım gibi sorumluluk kullanıcıya aittir.</p>
+    </details>
+    <details>
+      <summary>iOS sürümü var mı?</summary>
+      <p>Şu an yalnızca Android için geliştiriliyor. iOS desteği yol haritasında değil.</p>
+    </details>
+    <details>
+      <summary>Hangi Bedrock sürümleriyle uyumlu?</summary>
+      <p>Güncel kararlı Bedrock sürümleriyle uyumludur; büyük sürüm güncellemelerinden
+        sonra BlueCore da ayrı olarak güncellenir.</p>
+    </details>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>© 2026 BlueCore Client</span>
+  <span class="footer-sep">·</span>
+  <a href="https://github.com/">GitHub</a>
+  <span class="footer-sep">·</span>
+  <span>Minecraft ve Mojang'ın resmi bir ürünü değildir.</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
