@@ -8,18 +8,13 @@
 
   function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
-    toggleBtn.setAttribute(
-      "aria-pressed",
-      theme === "light" ? "true" : "false"
-    );
+    toggleBtn.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
   }
 
   function getPreferredTheme() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === "light" || saved === "dark") return saved;
-    return window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
+    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
   }
 
   applyTheme(getPreferredTheme());
@@ -30,6 +25,37 @@
     applyTheme(next);
     localStorage.setItem(STORAGE_KEY, next);
   });
+
+  /* ---------- module category tabs ---------- */
+  const tabs = document.querySelectorAll(".module-tab");
+  const cards = document.querySelectorAll(".module-card");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("is-active"));
+      tab.classList.add("is-active");
+      const cat = tab.dataset.cat;
+      cards.forEach((card) => {
+        card.classList.toggle("is-hidden", card.dataset.cat !== cat);
+      });
+    });
+  });
+
+  /* ---------- version picker updates download label ---------- */
+  const versionSelect = document.getElementById("version-select");
+  const downloadBtn = document.getElementById("download-btn");
+  const versionToFile = {
+    "1.21.x": "BlueCore_1.4.2.apk",
+    "1.20.x": "BlueCore_1.3.1.apk",
+    "1.19.x": "BlueCore_1.2.0.apk",
+  };
+
+  if (versionSelect && downloadBtn) {
+    versionSelect.addEventListener("change", () => {
+      const file = versionToFile[versionSelect.value] || versionToFile["1.21.x"];
+      downloadBtn.textContent = `${file} indir`;
+    });
+  }
 
   /* ---------- nebula starfield background ---------- */
   const canvas = document.getElementById("nebula-canvas");
@@ -61,7 +87,7 @@
       width * 0.75, height * 0.15, 0,
       width * 0.75, height * 0.15, Math.max(width, height) * 0.8
     );
-    grad.addColorStop(0, "rgba(91, 141, 239, 0.18)");
+    grad.addColorStop(0, "rgba(127, 214, 255, 0.18)");
     grad.addColorStop(0.5, "rgba(139, 108, 246, 0.08)");
     grad.addColorStop(1, "rgba(0, 0, 0, 0)");
     ctx.fillStyle = grad;
@@ -73,7 +99,7 @@
         : s.baseAlpha * (0.6 + 0.4 * Math.sin(time * s.twinkleSpeed + s.twinklePhase));
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(234, 240, 255, ${twinkle})`;
+      ctx.fillStyle = `rgba(234, 246, 255, ${twinkle})`;
       ctx.fill();
 
       if (!reduceMotion) {
